@@ -1,0 +1,26 @@
+<html>
+    <link rel="stylesheet" href="index.css">
+    <body>
+        <div class="wrap">
+            <div class="search">
+               <input type="text" id="autocomplete" class="searchTerm" placeholder="Where are you looking for?">
+               <button type="submit" class="searchButton">
+                 <i class="fa fa-search"></i>
+              </button>
+            </div>
+         </div>
+    </body>
+    <script>
+        let autocomplete;
+        function initAutoComplete() {
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('autocomplete'),
+                {
+                    types: ['establishment'],
+                    componentRestrictions: {'country': ['AU', 'USA', 'UK']},
+                    fields: ['place_id', 'geometry', 'name']
+                });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5JfTcJPmbQiH6pyC6sx-sUgqcmu1_wDY&libraries=places&callback=initAutoComplete" async defer></script>
+</html>
